@@ -1,5 +1,5 @@
 ---
-title: "Course Title"
+title: "Cloud materials"
 ---
 
-Course info & details here
+Main description
