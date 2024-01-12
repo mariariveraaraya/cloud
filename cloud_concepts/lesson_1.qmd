@@ -30,3 +30,6 @@ Think of physical representation as the warehouse storing boxes of raw materials
 Remember that comprehending both concepts is vital in understanding data management as a whole. They form the building blocks of data storage; understanding their synergy will guide you in leveraging the power of data effectively and efficiently.
 
 We hope this lesson provided a foundational understanding of physical and logical data representation. Stay tuned for our upcoming lessons, which will delve deeper into different aspects of data management.
+
+{{< video videos/physical_logical_demo.mp4 >}}
+
