@@ -15,17 +15,19 @@ website:
         text: GitHub
     style: docked
     contents:
-      - href: index.qmd
-        text: Home
+      - section: "welcome"
+        contents: 
+          - index.qmd
+  #      text: Home
       - section: "Lessons"
         contents: 
           - cloud_concepts/lesson_1.qmd
-      - href: schedule.qmd
-        text: Schedule
-      - href: materials.qmd
-        text: Materials
-      - href: https://github.com/mariariveraaraya/cloud/discussions
-        text: Forum
+  #    - href: schedule.qmd
+  #      text: Schedule
+  #    - href: materials.qmd
+  #     text: Materials
+   #   - href: https://github.com/mariariveraaraya/cloud/discussions
+    #    text: Forum
 
 format:
   html:
