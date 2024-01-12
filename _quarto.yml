@@ -17,8 +17,8 @@ website:
     contents:
       - href: index.qmd
         text: Home
-      - section: 
-        contents: "Lessons"
+      - section: "Lessons"
+        contents: 
           - cloud_concepts/lesson_1.qmd
       - href: schedule.qmd
         text: Schedule
