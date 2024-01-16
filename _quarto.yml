@@ -19,9 +19,8 @@ website:
         contents: 
           - index.qmd
   #      text: Home
-      - section: "Lessons"
+      - section: "Tutorials"
         contents: 
-          - cloud_concepts/lesson_1.qmd
           - cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.ipynb
   #    - href: schedule.qmd
   #      text: Schedule

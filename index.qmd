@@ -1,5 +1,6 @@
 ---
-title: "Cloud materials"
+title: "Tutorials demonstrating the use of cloud tools using the QESD CLoud Platform"
 ---
+These tutorials are a combination of narrative, links, code, and outputs. They have been developed for live demos during the implementation of the QESD Cloud Platform, and are available for self-paced learning.
 
-Main description
+
