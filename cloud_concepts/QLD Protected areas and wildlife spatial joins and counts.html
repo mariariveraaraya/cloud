@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Course Title - Description</title>
+<title>Course Title - Spatial operations using Azure and the QESD Platform</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -105,7 +105,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cloud_concepts/lesson_1.html">Lessons</a></li><li class="breadcrumb-item"><a href="../cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.html">Description</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.html">Spatial operations using Azure and the QESD Platform</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,7 +145,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Cloud materials</span></a>
+ <span class="menu-text">Tutorials demonstrating the use of cloud tools using the QESD CLoud Platform</span></a>
   </div>
 </li>
       </ul>
@@ -153,7 +153,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
- <span class="menu-text">Lessons</span></a>
+ <span class="menu-text">Tutorials</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -161,14 +161,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cloud_concepts/lesson_1.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Lesson 1: Physical and Logical Representation of Data (Files vs Views)</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
   <a href="../cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Description</span></a>
+ <span class="menu-text">Spatial operations using Azure and the QESD Platform</span></a>
   </div>
 </li>
       </ul>
@@ -186,7 +180,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Description</h1>
+<h1 class="title">Spatial operations using Azure and the QESD Platform</h1>
 </div>
 
 
@@ -201,7 +195,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
+<section id="description" class="level4">
+<h4 class="anchored" data-anchor-id="description">Description</h4>
 <p>This notebook is part of a proof of concept developed to test the capabilities in the QESD platform to process large geospatial data and replicate workflows from ArcGIS Pro. In particular, this notebook shows how to perform spatial joins and counts using two geospatial datasets.</p>
+</section>
 <section id="datasets-and-methods" class="level4">
 <h4 class="anchored" data-anchor-id="datasets-and-methods">Datasets and methods</h4>
 <p>The datasets were manually ingested as there is not a current integration between SIR or Open Data and the QESD platform. The protected areas of Queensland geospatial dataset was downloaded from <a href="https://spatial.information.qld.gov.au/arcgis/rest/services/SIR-QGov/ProtectedAreasTerrestrial/FeatureServer/5">SIR</a> in geojson format and then read with geopandas locally to preserve the geometry. It was then saved as parquet format and uploaded to Blob Storage. Alternatively, the json file can be read directly with geopandas if the file is stored in Databricks Workspace, for example: example = gpd.read_file(‘/Workspace/Users/maria.riveraaraya@des.qld.gov.au/spatial autocorrelation/pa_all.json’). This dataset contains 1926 polygons (~ 7 MB).</p>
@@ -229,13 +226,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li>Navigate to Workspace and open the folder platform_repo/geospatial. This folder contains several examples demonstrating the use of Azure Databricks for different geospatial analysis and operations in vector data, including building choropleth maps, spatial joins, counts and calculation of polygon areas in small and large datasets.</li>
 <li>Start a cluster. We recommend ‘singlenode’ as we do not need distributed computing and our datasets are small.</li>
 </ol>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“a45447eb-a203-45a0-9ba2-f7c28974b37b”,“showTitle”:false,“title”:““}’}</p>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install modules</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>pip install geopandas<span class="op">==</span><span class="fl">0.14.0</span> <span class="co"># Pandas equivalent to process geospatial data</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>pip install folium<span class="op">==</span><span class="fl">0.14.0</span> <span class="co"># To produce interactive maps</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“43215939-2e57-48de-9475-da3a0f5ada45”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># These libraries are pre-installed in a Databricks 12.2 LTS runtime cluster (except geopandas and folium)</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> geopandas <span class="im">as</span> gpd <span class="co"># Pandas equivalent to process geospatial data</span></span>
@@ -246,8 +243,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd <span class="co"># To process data    </span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os <span class="co"># To interact with the operating system</span></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> folium <span class="im">import</span> plugins <span class="co"># To produce interactive maps</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“0b3fb41e-ad65-4cf1-ba4a-5a8b0155c156”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import datasets from Azure Data Lake Storage (ADLS)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the environment name from the system environment variables</span></span>
@@ -274,8 +271,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    .<span class="bu">format</span>(<span class="st">"parquet"</span>)</span>
 <span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    .load(<span class="ss">f'abfss://lake-userupload@sboxlake</span><span class="sc">{</span>env<span class="sc">}</span><span class="ss">.dfs.core.windows.net/geospatial_test/wildnet_pp_str.parquet'</span>)</span>
 <span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“b579c062-e32d-4d4e-b4ef-8dd7a1a06901”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert Spark DataFrames to pandas DataFrames </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This is necessary to convert the geometries from wkt to shapely geometries</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -287,8 +284,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>pa_gdf <span class="op">=</span> gpd.GeoDataFrame(pa_pd)</span>
 <span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>wild_gpd <span class="op">=</span> gpd.GeoDataFrame(wild_pd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“e327a4d4-c9b5-4135-8c1e-e8863775d44b”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define geometries</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'geometry' column in the original data is a string</span></span>
@@ -307,20 +304,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># We repeat the same steps for the 'wild' dataset</span></span>
 <span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>wild_gpd<span class="op">=</span> gpd.GeoDataFrame(wild_gpd).set_geometry(<span class="st">"geometry2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“03391762-d311-4c05-81e0-d09e75a52c2f”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Perform spatial join on right to retain all records from observation points</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'contains' operation is used to find all protected areas that contain the observation points</span></span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>joined_inner <span class="op">=</span> gpd.sjoin(pa_gdf, wild_gpd, how<span class="op">=</span><span class="st">'right'</span>, op<span class="op">=</span><span class="st">'contains'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“0f472f73-f7ec-4c94-b6bb-888074e22a8b”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Count by protected area and polygon</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'groupby' function is used to group the data by protected area and polygon</span></span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>point_count <span class="op">=</span> joined_inner.groupby([<span class="st">'geometry_left'</span>, <span class="st">'estatename'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'total number of sightings'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“b3d73438-2c40-4ecc-95eb-9cbb34cfaf15”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Rejoin with protected areas</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'merge' function is used to join the 'point_count' and 'pa_gdf' GeoDataFrames</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>merged_counts_pa <span class="op">=</span> point_count.merge(pa_gdf, left_on <span class="op">=</span> [<span class="st">'geometry_left'</span>], right_on<span class="op">=</span> [<span class="st">'geometry'</span>], how <span class="op">=</span> <span class="st">'outer'</span>)</span>
@@ -328,8 +325,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to dataframe</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'set_geometry' function is used to set the 'geometry2' column as the geometry column</span></span>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>merged_gdf <span class="op">=</span> gpd.GeoDataFrame(merged_counts_pa).set_geometry(<span class="st">'geometry2'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“1b7accce-ec5a-4994-bf09-4db8dfaf07b2”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate total number of sightings per protected area</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'groupby' function is used to group the data by protected area</span></span>
 <span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'aggregate' function is used to calculate the sum of the 'total number of sightings' column</span></span>
@@ -338,8 +335,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>aggregation_functions <span class="op">=</span> {<span class="st">'total number of sightings'</span>: <span class="st">'sum'</span>}</span>
 <span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>merged_agg <span class="op">=</span> merged_gdf.groupby(merged_gdf[<span class="st">'estatename_y'</span>]).aggregate(aggregation_functions)</span>
 <span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>merged_agg <span class="op">=</span> merged_agg.rename(columns<span class="op">=</span>{<span class="st">"total number of sightings"</span>: <span class="st">"aggregated sightings"</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“f8b8e7d7-9b99-4b06-a575-2785effc6d8f”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Set correct indexes to join aggregations with previous dataframe</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'set_index' function is used to set the 'estatename_y' column as the index</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'join' function is used to join the 'merged_gdf_index' and 'merged_agg' GeoDataFrames</span></span>
@@ -347,8 +344,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>merged_gdf_index <span class="op">=</span> merged_gdf.set_index(<span class="st">'estatename_y'</span>)</span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>merged <span class="op">=</span> merged_gdf_index.join(merged_agg).reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“181626f3-cc2e-4fd1-a8cc-871af2117580”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Merge resulting dataframe with raw protected areas to include polygons with zero sightings</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'merge' function is used to join the 'merged' and 'pa_gdf' GeoDataFrames</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'left_on' and 'right_on' parameters are used to specify the join columns</span></span>
@@ -365,16 +362,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>final_merged[<span class="st">'aggregated sightings'</span>] <span class="op">=</span> final_merged.groupby(<span class="st">'estatename'</span>)[<span class="st">'aggregated sightings'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: x.fillna(x.<span class="bu">max</span>()))</span>
 <span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>final_merged[<span class="st">'aggregated sightings'</span>] <span class="op">=</span> final_merged[<span class="st">'aggregated sightings'</span>].fillna(<span class="dv">0</span>)</span>
 <span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>final_merged <span class="op">=</span> final_merged.drop([<span class="st">'estatename_x'</span>, <span class="st">'geometry_x'</span>, <span class="st">'geometry_y'</span>, <span class="st">'geometry_left'</span>, <span class="st">'estatename_y'</span>], axis<span class="op">=</span><span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“7306ca7b-7f6c-4fa3-8a66-bc9668474f69”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Test with three protected areas to compare with ArcGIS Pro</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'loc' function is used to select the rows where the 'estatename' column is equal to 'Great Sandy National Park', 'Minerva Hills National Park', or 'Tinana Creek Conservation Park'</span></span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> final_merged.loc[(final_merged[<span class="st">'estatename'</span>] <span class="op">==</span> <span class="st">'Great Sandy National Park'</span>) <span class="op">|</span> (final_merged[<span class="st">'estatename'</span>] <span class="op">==</span> <span class="st">'Minerva Hills National Park'</span>) <span class="op">|</span> (final_merged[<span class="st">'estatename'</span>] <span class="op">==</span> <span class="st">'Tinana Creek Conservation Park'</span>)]</span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>filtered_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“b01e02d4-acb5-49ca-b99a-101bfcd6a5d5”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use folium to create a map. Only three protected areas are included for demonstration</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'Map' function is used to create a map</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'location' parameter is used to specify the center of the map</span></span>
@@ -394,8 +391,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>points_gjson<span class="op">=</span> folium.features.GeoJson(final_merged_gdf, name<span class="op">=</span><span class="st">"wildlife counts"</span>)</span>
 <span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>points_gjson.add_to(m)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“03321333-4846-4623-aeff-a86601bfaa6e”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use folium plugin to create tooltip</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'plugins.MarkerCluster' function is used to create a marker cluster</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'add_to' function is used to add the marker cluster to the map</span></span>
@@ -410,13 +407,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>                       ).add_to(m)</span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>m</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“6afc3bf8-e255-4de9-b83d-44897e7f0084”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save map to workspace - replace with your own path</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="co">#m.save(outfile='/Workspace/Users/maria.riveraaraya@des.qld.gov.au/spatial autocorrelation/sandy_minerva_tinana.html')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“6a02adb3-71b4-4e21-a3f3-37034bdc304f”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check number of polygons is correct</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'count' function is used to count the number of rows in the GeoDataFrame</span></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -429,8 +426,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>merged_pq <span class="op">=</span> merged_pq.rename(columns <span class="op">=</span> {<span class="st">'total number of sightings'</span>: <span class="st">'number of sightings in polygon'</span>, <span class="st">'aggregated sightings'</span>:<span class="st">'total number of sightings in protected area'</span>, <span class="st">'geometry2'</span>: <span class="st">'geometry'</span>})</span>
 <span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>merged_pq.count()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“72a9790c-344c-47e6-843f-11c9cf268eed”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Browse total number of sightings per protected area</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'drop_duplicates' function is used to drop duplicate rows based on the 'estatename' and 'total number of sightings in protected area' columns</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'createDataFrame' function is used to create a Spark DataFrame from a pandas DataFrame</span></span>
@@ -438,18 +435,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>merged_pq_sum <span class="op">=</span> merged_pq[[<span class="st">'estatename'</span>, <span class="st">'total number of sightings in protected area'</span>]].drop_duplicates()</span>
 <span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>display(spark.createDataFrame(merged_pq_sum))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“f3c1d224-64c5-4183-9d38-fd3293e0aecc”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To store csv</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a> <span class="co">#spark.createDataFrame(test).repartition(1).write.mode("overwrite").option("header", "true").csv(f'abfss://lake-userupload@sboxlake{env}.dfs.core.windows.net/geospatial/sandy_minerva_test.csv')</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
-<p>::: {.cell application/vnd.databricks.v1+cell=‘{“cellMetadata”:{“byteLimit”:2048000,“rowLimit”:10000},“inputWidgets”:{},“nuid”:“1fe7f1f5-687d-40e9-9d55-2a98d1fb7d1e”,“showTitle”:false,“title”:““}’}</p>
+</div>
+<div class="cell">
 <div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Write to blob </span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="co"># The 'write' function is used to write the Spark DataFrame to the specified file path</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>spark.createDataFrame(merged_pq).write.mode(<span class="st">"overwrite"</span>).parquet(<span class="ss">f'abfss://lake-userupload@sboxlake</span><span class="sc">{</span>env<span class="sc">}</span><span class="ss">.dfs.core.windows.net/geospatial_test/pr_areas_counts.parquet'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>:::</p>
+</div>
 
 
 </section>
