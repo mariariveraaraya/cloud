@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Course Title"
+  title: "Cloud tools for scientific analyses at DESI"
   sidebar:
     background: primary
     # logo: "images/logo.png"
@@ -15,7 +15,7 @@ website:
         text: GitHub
     style: docked
     contents:
-      - section: "welcome"
+      - section: "Welcome!"
         contents: 
           - index.qmd
   #      text: Home
