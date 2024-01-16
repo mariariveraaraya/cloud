@@ -1,3 +1,8 @@
+# Cloud tools for scientific workflows
+
+This website is a demo of tutorials created for scientific workflows in the cloud.
+
+
 # Quarto course website template
 
 A template for course websites developed with [Quarto](https://quarto.org) and hosted on GitHub.
