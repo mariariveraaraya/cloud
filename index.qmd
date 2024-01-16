@@ -1,6 +1,6 @@
 ---
 title: "Cloud tools for scientific analyses"
 ---
-These tutorials are a combination of narrative, links, code, and outputs. They have been developed for live demos during the implementation of the QESD Cloud Platform, and are available for self-paced learning.
+These tutorials are a combination of narrative, links, code, and outputs. They have been developed for live demos during the implementation of the QESD Cloud Platform at the Department of Environment, Science and Innovation, and are available for self-paced learning.
 
 
