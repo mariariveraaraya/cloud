@@ -16,7 +16,7 @@ Increasing data volumes and technological advancements are ushering us into a ne
 
 This section includes detailed processes on how to login from your local integrated development environment to read data from Synapse.
 
-## Geospatial case study and best practice examples
+## [Geospatial case study and best practice examples](cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.ipynb)
 
 This section features a workflow that demonstrate how we can use cloud tools available in the QESD cloud platform to perform geopatial analyses.
 
