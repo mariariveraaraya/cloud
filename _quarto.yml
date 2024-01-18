@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Cloud tools for scientific analyses at DESI"
+  title: "Cloud tools for scientific analyses in the QESD cloud platform"
   sidebar:
     background: primary
     # logo: "images/logo.png"
