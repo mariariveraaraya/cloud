@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Cloud tools for scientific analyses in the QESD cloud platform - Querying Synapse from VS Code using Python</title>
+<title>Cloud tools for scientific analyses in the QESD cloud platform - How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -112,7 +112,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cloud_concepts/python_query_synapse_views.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../cloud_concepts/python_query_synapse_views.html">Querying Synapse from VS Code using Python</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Cloud tools for scientific analyses in the QESD cloud platform
+      </li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -168,7 +170,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../cloud_concepts/python_query_synapse_views.html" class="sidebar-item-text sidebar-link active">
+  <a href="../cloud_concepts/python_query_synapse_views.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Querying Synapse from VS Code using Python</span></a>
   </div>
 </li>
@@ -190,16 +192,20 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#querying-synapse-from-vs-code-using-python" id="toc-querying-synapse-from-vs-code-using-python" class="nav-link active" data-scroll-target="#querying-synapse-from-vs-code-using-python">Querying Synapse from VS Code using Python</a></li>
+  <li><a href="#how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" id="toc-how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" class="nav-link active" data-scroll-target="#how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide">How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</a>
+  <ul class="collapse">
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites:</a></li>
+  </ul></li>
+  <li><a href="#how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading" id="toc-how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading" class="nav-link" data-scroll-target="#how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading">How to read files in a Blob storage account in the QESD Platform from a local IDE using Python (without downloading)</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../cloud_concepts/python_query_synapse_views.html">Tutorials</a></li><li class="breadcrumb-item"><a href="../cloud_concepts/python_query_synapse_views.html">Querying Synapse from VS Code using Python</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Querying Synapse from VS Code using Python</h1>
+<h1 class="title">How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</h1>
 </div>
 
 
@@ -216,73 +222,150 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="querying-synapse-from-vs-code-using-python" class="level2">
-<h2 class="anchored" data-anchor-id="querying-synapse-from-vs-code-using-python">Querying Synapse from VS Code using Python</h2>
-<p>This notebook provides a guide for querying and analyzing available views in Azure Synapse Analytics directly from Visual Studio Code (VS Code) or your preferred Integrated Development Environment (IDE) using Python. By following the instructions in this notebook, you will learn how to establish a connection to your Synapse workspace, execute SQL queries against the available views, and retrieve the results. Search for <todo> for locations where you need to input the appropriate values based on your use case.</todo></p>
-<p><strong>Prerequisites</strong>:</p>
+<section id="how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" class="level1">
+<h1>How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</h1>
+<p>To access files stored in Azure Blob Storage within the QESD Platform from a local IDE (such as Visual Studio Code), you need to set up authentication. Azure offers various authentication methods for accessing resources. In the QESD Platform, the preferred authentication method for most users is through Microsoft Entra ID (previously known as Azure Active Directory - Azure AD). Check out the BlobServiceClient class in the azure.storage.blob to explore other features such as writing and uploading blobs to a storage account.</p>
+<p>The following example illustrates how to download a blob from Azure Blob Storage using the Azure SDK for Python. Search for <todo> for locations where you need to input the appropriate values based on your use case. Please note that currently there is no suitable method available for R.</todo></p>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites:</h3>
 <ul>
 <li>Data Reader permissions in the storage account you are trying to access.</li>
 <li>An installation of Python available in your local machine</li>
 <li>An IDE (like VSCode)</li>
 </ul>
 <div id="cell-1" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install pyodbc for SQL Server connectivity  </span></span>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install required libraries. We recommend using your preferred package manager or virtual environment to install the libraries in the correct environment and avoid conflicts with other packages.</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="op">%</span>pip install pyodbc</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install azure-identity</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install azure-storage-blob</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># %pip install pandas</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-2" class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import libraries for SQL Server connectivity and data manipulation</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pyodbc</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div id="cell-2" class="cell" data-execution_count="13">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># In the code below, we import the necessary modules from the Azure SDK and create an instance of `InteractiveBrowserCredential` for interactive authentication. </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># This will prompt you to sign in interactively in the browser if no token is cached or if a device code is required. </span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co"># We then create a `BlobServiceClient` object by providing the account URL and credential.</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Import the necessary modules from the Azure SDK </span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.identity <span class="im">import</span> InteractiveBrowserCredential</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.storage.blob <span class="im">import</span> BlobServiceClient</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an instance of InteractiveBrowserCredential for interactive authentication </span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co"># This will prompt you to sign in interactively and obtain the necessary token</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co"># The credential object will be used to authenticate with Azure services</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    credential <span class="op">=</span> InteractiveBrowserCredential()</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain a token from the Azure Active Directory endpoint to access the Azure Storage account</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    credential.get_token(<span class="st">"https://management.azure.com/.default"</span>)</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the given credential can successfully obtain a token for the specified resource</span></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a><span class="co"># If an exception occurs during authentication, print the error message</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> ex:</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span>ex<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a BlobServiceClient object by providing the account URL and credential</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a><span class="co"># The account URL is the URL of your Azure Blob Storage account</span></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># The credential is the authentication credential used to access the storage account</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>blob_service_client <span class="op">=</span> BlobServiceClient(</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    <span class="co">#TODO: Replace the account_url parameter with the URL of your Azure Blob Storage account, for example "https://soilslakeuat.blob.core.windows.net"</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>    account_url<span class="op">=</span><span class="st">"https://sboxlakedev.blob.core.windows.net"</span>, </span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    credential<span class="op">=</span>credential</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Specify the name of the container and the blob you want to download</span></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>container_name <span class="op">=</span> <span class="st">"lake-userupload"</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>blob_name <span class="op">=</span> <span class="st">"wqm17"</span></span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a reference to the blob by calling the get_blob_client method of the BlobServiceClient</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Provide the container name and blob name as parameters</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>blob_client <span class="op">=</span> blob_service_client.get_blob_client(container<span class="op">=</span>container_name, blob<span class="op">=</span>blob_name)</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Download the blob by calling the download_blob method of the blob client</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>downloaded_blob <span class="op">=</span> blob_client.download_blob()</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Specify the local file path where you want to save the downloaded blob</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a>local_file_path <span class="op">=</span> <span class="st">"C:/Users/riveraarayam/Downloads/20231218_training_wqm17.csv"</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a><span class="co"># Open the local file in write binary mode and write the contents of the downloaded blob to the file</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a><span class="cf">with</span> <span class="bu">open</span>(local_file_path, <span class="st">"wb"</span>) <span class="im">as</span> <span class="bu">file</span>:</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    <span class="bu">file</span>.write(downloaded_blob.readall())</span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true" tabindex="-1"></a><span class="co"># Print a success message indicating that the blob has been downloaded</span></span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Blob downloaded successfully."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Blob downloaded successfully.</code></pre>
 </div>
-<div id="cell-3" class="cell" data-execution_count="3">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define connection parameters. Once you run this cell a new tab in your browser will open asking you to login to your Azure account. Once you login, you will be able to connect to the database.</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Replace the server name and username with your own values</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>server <span class="op">=</span> <span class="st">"sbox-synapse-prd-ondemand.sql.azuresynapse.net"</span> <span class="co"># make sure to change it to your server name</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>database <span class="op">=</span> <span class="st">"synapse_od"</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>username <span class="op">=</span> <span class="st">"myemail@des.qld.gov.au"</span> <span class="co"># Replace with your des your email here</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>Authentication <span class="op">=</span> <span class="st">"ActiveDirectoryInteractive"</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>driver <span class="op">=</span> <span class="st">"{ODBC Driver 17 for SQL Server}"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div id="cell-4" class="cell" data-execution_count="4">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Connect to SQL Server using pyodbc and the parameters above. Once you run this cell a new tab in your browser will open asking you to login to your Azure account. Once you login, you will be able to connect to the database.</span></span>
+</section>
+</section>
+<section id="how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading" class="level1">
+<h1>How to read files in a Blob storage account in the QESD Platform from a local IDE using Python (without downloading)</h1>
+<p>This guide explains how to read files stored in a Blob storage account within the QESD Platform using Python, without the need to download the entire file. By leveraging the Azure Blob Storage SDK for Python, you can access the file’s content directly from your local IDE. This approach allows you to efficiently read and process the file’s data without the overhead of downloading the entire file. The tutorial provides step-by-step instructions on setting up the necessary authentication, accessing the Blob storage account, and reading the file as a Pandas DataFrame using Python. Search for <todo> for locations where you need to input the appropriate values based on your use case.</todo></p>
+<div id="cell-4" class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import required libraries </span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>conn_str <span class="op">=</span> <span class="ss">f"DRIVER=</span><span class="sc">{</span>driver<span class="sc">}</span><span class="ss">;SERVER=</span><span class="sc">{</span>server<span class="sc">}</span><span class="ss">;DATABASE=</span><span class="sc">{</span>database<span class="sc">}</span><span class="ss">;UID=</span><span class="sc">{</span>username<span class="sc">}</span><span class="ss">;Authentication=</span><span class="sc">{</span>Authentication<span class="sc">}</span><span class="ss">;"</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>conn <span class="op">=</span> pyodbc.<span class="ex">connect</span>(conn_str)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-5" class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Query the database and load the results into a dataframe</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Here we want to retrieve the first 100 observations from the tide view in sbox_curated. Check out the next cell to understand how to get the name of available views</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Replace the query with your own query</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>query <span class="op">=</span> <span class="st">"SELECT TOP (100) [timestamp] ,[lowest_astronomical_tide_datum_reading] FROM [sbox_curated].[tide]"</span> </span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_sql(query, conn)</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, row <span class="kw">in</span> df.iterrows():</span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Process each row as needed</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(row)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-6" class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># To get the list of available views in the database, we can use the following code:</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a cursor object</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>cursor <span class="op">=</span> conn.cursor()</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Get the list of available tables</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>tables <span class="op">=</span> cursor.tables()</span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over the tables and print their names</span></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> table <span class="kw">in</span> tables:</span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(table.table_name)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div id="cell-7" class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Close the connection to the database when done</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>conn.close()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> BytesIO</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.identity <span class="im">import</span> InteractiveBrowserCredential</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> azure.storage.blob <span class="im">import</span> BlobServiceClient</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Create an instance of InteractiveBrowserCredential for interactive authentication </span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="co"># This will prompt you to sign in interactively and obtain the necessary token</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># The credential object will be used to authenticate with Azure services</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="cf">try</span>:</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>    credential <span class="op">=</span> InteractiveBrowserCredential()</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtain a token from the Azure Active Directory endpoint to access the Azure Storage account</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>    credential.get_token(<span class="st">"https://management.azure.com/.default"</span>)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Check if the given credential can successfully obtain a token for the specified resource</span></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># If an exception occurs during authentication, print the error message</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="cf">except</span> <span class="pp">Exception</span> <span class="im">as</span> ex:</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Error: </span><span class="sc">{</span>ex<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a BlobServiceClient object</span></span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>blob_service_client <span class="op">=</span> BlobServiceClient(</span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="co"># </span><span class="al">TODO</span><span class="co">: Replace the account_url parameter with the URL of your Azure Blob Storage account, for example "https://soilslakeuat.blob.core.windows.net"</span></span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    account_url<span class="op">=</span><span class="st">"https://sboxlakedev.blob.core.windows.net"</span>,</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>    credential<span class="op">=</span>credential</span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># </span><span class="al">TODO</span><span class="co">: Specify the name of the container and the blob you want to read</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-35"><a href="#cb4-35" aria-hidden="true" tabindex="-1"></a>container_name <span class="op">=</span> <span class="st">"lake-userupload"</span></span>
+<span id="cb4-36"><a href="#cb4-36" aria-hidden="true" tabindex="-1"></a>blob_name <span class="op">=</span> <span class="st">"wqm17"</span></span>
+<span id="cb4-37"><a href="#cb4-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-38"><a href="#cb4-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Get a BlobClient object for the specified blob</span></span>
+<span id="cb4-39"><a href="#cb4-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-40"><a href="#cb4-40" aria-hidden="true" tabindex="-1"></a>blob_client <span class="op">=</span> blob_service_client.get_blob_client(container<span class="op">=</span>container_name, blob<span class="op">=</span>blob_name)</span>
+<span id="cb4-41"><a href="#cb4-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-42"><a href="#cb4-42" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the blob data as bytes</span></span>
+<span id="cb4-43"><a href="#cb4-43" aria-hidden="true" tabindex="-1"></a>blob_data <span class="op">=</span> blob_client.download_blob().readall()</span>
+<span id="cb4-44"><a href="#cb4-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-45"><a href="#cb4-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a BytesIO object from the blob data</span></span>
+<span id="cb4-46"><a href="#cb4-46" aria-hidden="true" tabindex="-1"></a>bytes_io <span class="op">=</span> BytesIO(blob_data)</span>
+<span id="cb4-47"><a href="#cb4-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-48"><a href="#cb4-48" aria-hidden="true" tabindex="-1"></a><span class="co"># Read the BytesIO object as a Pandas DataFrame</span></span>
+<span id="cb4-49"><a href="#cb4-49" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(bytes_io)</span>
+<span id="cb4-50"><a href="#cb4-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-51"><a href="#cb4-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the DataFrame as needed</span></span>
+<span id="cb4-52"><a href="#cb4-52" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 

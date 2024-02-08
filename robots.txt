@@ -1,1 +1,1 @@
-Sitemap: https://github.com/mariariveraaraya/cloud/sitemap.xml
+Sitemap: https://mariariveraaraya.github.io/cloud/sitemap.xml
