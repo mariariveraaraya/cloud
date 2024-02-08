@@ -21,6 +21,7 @@ website:
   #      text: Home
       - section: "Tutorials"
         contents: 
+          - cloud_concepts/python_blob_storage_sdk.ipynb
           - cloud_concepts/python_query_synapse_views.ipynb
           - cloud_concepts/QLD Protected areas and wildlife spatial joins and counts.ipynb
   #    - href: schedule.qmd
