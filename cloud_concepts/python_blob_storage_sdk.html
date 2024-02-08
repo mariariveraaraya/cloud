@@ -196,10 +196,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" id="toc-how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" class="nav-link active" data-scroll-target="#how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide">How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</a>
-  <ul class="collapse">
+  <li><a href="#how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" id="toc-how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" class="nav-link active" data-scroll-target="#how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide">How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites:</a></li>
-  </ul></li>
   <li><a href="#how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading" id="toc-how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading" class="nav-link" data-scroll-target="#how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading">How to read files in a Blob storage account in the QESD Platform from a local IDE using Python (without downloading)</a></li>
   </ul>
 </nav>
@@ -226,10 +224,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" class="level2">
-<h2 class="anchored" data-anchor-id="how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide">How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</h2>
+<section id="how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-download-files-from-azure-blob-storage-in-the-qesd-platform-using-python-in-a-local-ide">How to download files from Azure Blob Storage in the QESD Platform using Python in a local IDE</h3>
 <p>To access files stored in Azure Blob Storage within the QESD Platform from a local IDE (such as Visual Studio Code), you need to set up authentication. Azure offers various authentication methods for accessing resources. In the QESD Platform, the preferred authentication method for most users is through Microsoft Entra ID (previously known as Azure Active Directory - Azure AD). Check out the BlobServiceClient class in the azure.storage.blob to explore other features such as writing and uploading blobs to a storage account.</p>
 <p>The following example illustrates how to download a blob from Azure Blob Storage using the Azure SDK for Python. Search for <todo> for locations where you need to input the appropriate values based on your use case. Please note that currently there is no suitable method available for R.</todo></p>
+</section>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites:</h3>
 <ul>
@@ -312,7 +311,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>Blob downloaded successfully.</code></pre>
 </div>
 </div>
-</section>
 </section>
 <section id="how-to-read-files-in-a-blob-storage-account-in-the-qesd-platform-from-a-local-ide-using-python-without-downloading" class="level1">
 <h1>How to read files in a Blob storage account in the QESD Platform from a local IDE using Python (without downloading)</h1>
